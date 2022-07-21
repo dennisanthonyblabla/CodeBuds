@@ -40,8 +40,32 @@ struct Homepage: View {
                     }
                     .searchable(text: $searchText, prompt: "What project were you looking for?")
                     .navigationTitle("Hey, User!")
+                    
                 }
             }
+           .toolbar {
+               ToolbarItem(placement: .bottomBar) {
+                   HStack (alignment: .center, spacing: 50
+                   ) {
+                       VStack {
+                           Image(systemName: "doc.plaintext.fill")
+                              .padding(.top, 30)
+                           Text("Projects")
+                              .font(.headline)
+                              .padding(.top, 1)
+                              .foregroundColor(Color("LightGray"))
+                       }
+                       VStack {
+                           Image(systemName: "person.crop.circle.fill")
+                               .padding(.top, 30)
+                           Text("Profile")
+                              .font(.headline)
+                              .padding(.top, 1)
+                              .foregroundColor(Color("LightGray"))
+                       }
+                  }
+               }
+           }
         }
     }
 }
