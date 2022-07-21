@@ -32,6 +32,7 @@ struct Homepage: View {
                             .font(.custom("Avenir", size: 12))
                             .padding(.bottom, 5)
                     }
+                    .listRowSeparator(.hidden)
                 }
                 .searchable(text: $searchText, prompt: "What project were you looking for?")
                 .navigationTitle("Hey, User!")
