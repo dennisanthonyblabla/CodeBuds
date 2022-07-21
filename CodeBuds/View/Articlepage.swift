@@ -15,12 +15,16 @@ struct Articlepage: View {
                     HStack {
                         Text("Make Fake Twitter App")
                             .fontWeight(.black)
+                            .foregroundColor(Color("DarkGray"))
                             .padding(.leading, 15)
                             .font(.custom("Avenir", size: 27))
                         Spacer()
                     }
-                    Image("ffdsfds")
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 100, trailing: 10))
+                    Image("TrainTrailing")
+                        .renderingMode(.original)
+                        .resizable(resizingMode: .stretch)
+                        .aspectRatio(contentMode: .fit)
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
                 }
                 ScrollView (){
                     VStack (alignment: .leading) {

@@ -18,24 +18,29 @@ struct Homepage: View {
         
     var body: some View {
         NavigationView {
-            VStack {
-                List(0..<30) { item in
-                    VStack (alignment: .leading) {
-                        Text("Make Fake Twitter App")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.heavy)
-                            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-                        Text("SwiftUI")
-                            .font(.custom("Avenir", size: 16))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                        Text("By John Doe")
-                            .font(.custom("Avenir", size: 12))
-                            .padding(.bottom, 5)
+            ZStack {
+                VStack {
+                    List(0..<30) { item in
+                        VStack (alignment: .leading) {
+                            Text("Make Fake Twitter App")
+                                .font(.custom("Avenir", size: 16))
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color("DarkGray"))
+                                .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                            Text("SwiftUI")
+                                .font(.custom("Avenir", size: 16))
+                                .foregroundColor(Color("DarkGray"))
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                            Text("By John Doe")
+                                .font(.custom("Avenir", size: 12))
+                                .foregroundColor(Color("LightGray"))
+                                .padding(.bottom, 5)
+                        }
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowSeparator(.hidden)
+                    .searchable(text: $searchText, prompt: "What project were you looking for?")
+                    .navigationTitle("Hey, User!")
                 }
-                .searchable(text: $searchText, prompt: "What project were you looking for?")
-                .navigationTitle("Hey, User!")
             }
         }
     }

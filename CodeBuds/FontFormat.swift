@@ -10,11 +10,13 @@ import Foundation
 func ArticleSubHeader(text: String) -> Text {
     Text(text)
         .fontWeight(.heavy)
+        .foregroundColor(Color("DarkGray"))
         .font(.custom("Avenir", size: 20))
 }
 
 func Articlebody(text: String) -> Text {
     Text(text)
         .fontWeight(.regular)
+        .foregroundColor(Color("DarkGray"))
         .font(.custom("Avenir", size: 16))
 }
