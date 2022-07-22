@@ -61,6 +61,7 @@
 		3137A5DB288936E300324636 /* CodeBuds */ = {
 			isa = PBXGroup;
 			children = (
+				31C323A3288A473E00BA23AD /* Component */,
 				3137A5F128893E8000324636 /* View */,
 				3137A5DC288936E300324636 /* CodeBudsApp.swift */,
 				3137A5DE288936E300324636 /* ContentView.swift */,
@@ -88,6 +89,13 @@
 				3137A5F228893ECB00324636 /* Articlepage.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		31C323A3288A473E00BA23AD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
