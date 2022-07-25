@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311B607E288E38E60079008B /* Profilepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B607D288E38E60079008B /* Profilepage.swift */; };
+		311B6080288E41DF0079008B /* NewProjectpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B607F288E41DF0079008B /* NewProjectpage.swift */; };
+		311B6084288EE58E0079008B /* CDProjects.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 311B6082288EE58E0079008B /* CDProjects.xcdatamodeld */; };
+		311B6086288EE64B0079008B /* CDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B6085288EE64B0079008B /* CDController.swift */; };
 		3137A5DD288936E300324636 /* CodeBudsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5DC288936E300324636 /* CodeBudsApp.swift */; };
 		3137A5DF288936E300324636 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5DE288936E300324636 /* ContentView.swift */; };
 		3137A5E1288936E300324636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3137A5E0288936E300324636 /* Assets.xcassets */; };
@@ -16,9 +20,15 @@
 		3137A5F02889371100324636 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5EF2889371100324636 /* Homepage.swift */; };
 		3137A5F328893ECB00324636 /* Articlepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F228893ECB00324636 /* Articlepage.swift */; };
 		3137A5F5288943CE00324636 /* FontFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F4288943CE00324636 /* FontFormat.swift */; };
+		31C323A9288A566000BA23AD /* Home+ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C323A8288A566000BA23AD /* Home+ProfilePage.swift */; };
+		31C323AD288A60B300BA23AD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C323AC288A60B300BA23AD /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		311B607D288E38E60079008B /* Profilepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profilepage.swift; sourceTree = "<group>"; };
+		311B607F288E41DF0079008B /* NewProjectpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectpage.swift; sourceTree = "<group>"; };
+		311B6083288EE58E0079008B /* CDProjects.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDProjects.xcdatamodel; sourceTree = "<group>"; };
+		311B6085288EE64B0079008B /* CDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDController.swift; sourceTree = "<group>"; };
 		3137A5D9288936E300324636 /* CodeBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3137A5DC288936E300324636 /* CodeBudsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBudsApp.swift; sourceTree = "<group>"; };
 		3137A5DE288936E300324636 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +39,9 @@
 		3137A5EF2889371100324636 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		3137A5F228893ECB00324636 /* Articlepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articlepage.swift; sourceTree = "<group>"; };
 		3137A5F4288943CE00324636 /* FontFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFormat.swift; sourceTree = "<group>"; };
+		31C323A8288A566000BA23AD /* Home+ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+ProfilePage.swift"; sourceTree = "<group>"; };
+		31C323AA288A60B000BA23AD /* CodeBuds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeBuds.entitlements; sourceTree = "<group>"; };
+		31C323AC288A60B300BA23AD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C323AD288A60B300BA23AD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311B6081288EE5580079008B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				311B6082288EE58E0079008B /* CDProjects.xcdatamodeld */,
+				311B6085288EE64B0079008B /* CDController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		3137A5D0288936E200324636 = {
 			isa = PBXGroup;
 			children = (
 				3137A5DB288936E300324636 /* CodeBuds */,
 				3137A5DA288936E300324636 /* Products */,
+				31C323AB288A60B300BA23AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +85,9 @@
 		3137A5DB288936E300324636 /* CodeBuds */ = {
 			isa = PBXGroup;
 			children = (
+				311B6081288EE5580079008B /* CoreData */,
+				31C323AA288A60B000BA23AD /* CodeBuds.entitlements */,
+				31C323A3288A473E00BA23AD /* Component */,
 				3137A5F128893E8000324636 /* View */,
 				3137A5DC288936E300324636 /* CodeBudsApp.swift */,
 				3137A5DE288936E300324636 /* ContentView.swift */,
@@ -86,8 +113,26 @@
 			children = (
 				3137A5EF2889371100324636 /* Homepage.swift */,
 				3137A5F228893ECB00324636 /* Articlepage.swift */,
+				31C323A8288A566000BA23AD /* Home+ProfilePage.swift */,
+				311B607D288E38E60079008B /* Profilepage.swift */,
+				311B607F288E41DF0079008B /* NewProjectpage.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		31C323A3288A473E00BA23AD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		31C323AB288A60B300BA23AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31C323AC288A60B300BA23AD /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311B6086288EE64B0079008B /* CDController.swift in Sources */,
 				3137A5E6288936E300324636 /* Persistence.swift in Sources */,
+				311B6080288E41DF0079008B /* NewProjectpage.swift in Sources */,
 				3137A5DF288936E300324636 /* ContentView.swift in Sources */,
 				3137A5E9288936E300324636 /* CodeBuds.xcdatamodeld in Sources */,
+				311B607E288E38E60079008B /* Profilepage.swift in Sources */,
+				311B6084288EE58E0079008B /* CDProjects.xcdatamodeld in Sources */,
+				31C323A9288A566000BA23AD /* Home+ProfilePage.swift in Sources */,
 				3137A5F02889371100324636 /* Homepage.swift in Sources */,
 				3137A5DD288936E300324636 /* CodeBudsApp.swift in Sources */,
 				3137A5F328893ECB00324636 /* Articlepage.swift in Sources */,
@@ -292,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CodeBuds/CodeBuds.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeBuds/Preview Content\"";
@@ -321,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CodeBuds/CodeBuds.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeBuds/Preview Content\"";
@@ -369,6 +421,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		311B6082288EE58E0079008B /* CDProjects.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				311B6083288EE58E0079008B /* CDProjects.xcdatamodel */,
+			);
+			currentVersion = 311B6083288EE58E0079008B /* CDProjects.xcdatamodel */;
+			path = CDProjects.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		3137A5E7288936E300324636 /* CodeBuds.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
