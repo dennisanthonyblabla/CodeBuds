@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct Home_ProfilePage: View {
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(.black)
+        UITabBar.appearance().barTintColor = UIColor(named: "DarkGray")
+//        UITabBar.appearance().isTranslucent = false
+    }
+    
     var body: some View {
         TabView {
             Homepage()
@@ -18,7 +25,7 @@ struct Home_ProfilePage: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle.fill")
                 }
-        }
+        } .accentColor(Color("BGColor"))
     }
 }
 

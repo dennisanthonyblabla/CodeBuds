@@ -34,7 +34,7 @@ struct NewProjectpage: View {
                         VStack {
                             HStack {
                                 Text("Project Name")
-                                    .font(.custom("Avenir Heavy", size: 16))
+                                    .font(.custom("Avenir Heavy", size: 18))
                                     .padding(.top, 10)
                                 Spacer()
                             }
@@ -45,7 +45,7 @@ struct NewProjectpage: View {
                         VStack {
                             HStack {
                                 Text("Learning Objectives")
-                                    .font(.custom("Avenir Heavy", size: 16))
+                                    .font(.custom("Avenir Heavy", size: 18))
                                     .padding(.top, 10)
                                 Spacer()
                             }
@@ -56,7 +56,7 @@ struct NewProjectpage: View {
                         VStack {
                             HStack {
                                 Text("Project Description")
-                                    .font(.custom("Avenir Heavy", size: 16))
+                                    .font(.custom("Avenir Heavy", size: 18))
                                     .padding(.top, 10)
                                 Spacer()
                             }
@@ -67,7 +67,7 @@ struct NewProjectpage: View {
                         VStack {
                             HStack {
                                 Text("Contact Details")
-                                    .font(.custom("Avenir Heavy", size: 16))
+                                    .font(.custom("Avenir Heavy", size: 18))
                                     .padding(.top, 10)
                                 Spacer()
                             }
@@ -83,18 +83,20 @@ struct NewProjectpage: View {
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
                                Text("Save")
-                                   .font(.custom("Avenir Medium", size: 20))
+                                   .font(.custom("Avenir Medium", size: 18))
                                    .foregroundColor(Color("DarkGray"))
                            }
                            ToolbarItem(placement: .navigationBarLeading) {
-                               Button {
+                               Button (role: .none){
                                    print("clicked")
                                    dismiss()
                                } label: {
                                   HStack {
                                       Image(systemName: "chevron.left")
+                                          .renderingMode(.template)
+                                          .foregroundColor(Color("DarkGray"))
                                       Text("Back")
-                                          .font(.custom("Avenir Medium", size: 20))
+                                          .font(.custom("Avenir Medium", size: 18))
                                           .foregroundColor(Color("DarkGray"))
                                   }
                                }
