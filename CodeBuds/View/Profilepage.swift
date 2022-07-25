@@ -42,6 +42,7 @@ struct Profilepage: View {
                 }
                 
                     .navigationTitle("Your Projects")
+
                     .navigationBarTitleDisplayMode(.large)
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
@@ -55,6 +56,7 @@ struct Profilepage: View {
                                               .scaledToFit()
                                               .frame(width: 25, height: 25)
     //                                          .padding(.top, 85)
+                                              .foregroundColor(Color("DarkGray"))
                                    } .sheet(isPresented: $showingCreate) {
                                        NewProjectpage()
                                }

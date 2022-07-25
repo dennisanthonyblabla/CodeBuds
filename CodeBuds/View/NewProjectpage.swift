@@ -13,6 +13,7 @@ class ProjectViewModel: ObservableObject {
 
 struct NewProjectpage: View {
     
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = ProjectViewModel()
 
@@ -82,9 +83,17 @@ struct NewProjectpage: View {
                     .navigationBarTitleDisplayMode(.large)
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
-                               Text("Save")
-                                   .font(.custom("Avenir Medium", size: 18))
-                                   .foregroundColor(Color("DarkGray"))
+                               Button("Save") {
+                                   print("Clicked Save")
+                                   let project = UProjects(context: moc)
+                                   project.projectID = UUID()
+                                   project.projectName = viewModel.ProjectName
+                                   
+                                   
+                                   try? moc.save()
+                                   dismiss()
+                               }
+                               
                            }
                            ToolbarItem(placement: .navigationBarLeading) {
                                Button (role: .none){
@@ -100,12 +109,6 @@ struct NewProjectpage: View {
                                           .foregroundColor(Color("DarkGray"))
                                   }
                                }
-//                               HStack {
-//                                   Image(systemName: "chevron.left")
-//                                   Text("Back")
-//                                       .font(.custom("Avenir", size: 20))
-//                                       .foregroundColor(Color("DarkGray"))
-//                               }
                        }
                    }
             }

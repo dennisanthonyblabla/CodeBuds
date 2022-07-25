@@ -10,8 +10,9 @@ import SwiftUI
 struct Home_ProfilePage: View {
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(.black)
+        UITabBar.appearance().backgroundColor = UIColor(named: "DarkGray")
         UITabBar.appearance().barTintColor = UIColor(named: "DarkGray")
+        
 //        UITabBar.appearance().isTranslucent = false
     }
     

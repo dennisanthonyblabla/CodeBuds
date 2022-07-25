@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Homepage: View {
     
+    @FetchRequest(sortDescriptors: []) var projects: FetchedResults<UProjects>
+    
     @State private var searchText = ""
     
     init() {
@@ -22,9 +24,9 @@ struct Homepage: View {
         NavigationView {
             ZStack {
                 VStack {
-                    List(0..<30) { item in
+                    List(projects) { project in
                         VStack (alignment: .leading) {
-                            Text("Make Fake Twitter App") 
+                            Text(project.projectName ?? "unkown")
                                 .font(.custom("Avenir Heavy", size: 16))
                                 .foregroundColor(Color("DarkGray"))
                                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
