@@ -13,7 +13,7 @@ struct CodeBudsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Homepage()
+            Home_ProfilePage()
 //            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

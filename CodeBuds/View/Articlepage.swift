@@ -59,8 +59,8 @@ struct Articlepage: View {
                           HStack {
                               Image(systemName: "chevron.left")
                               Text("Back")
-                                  .font(.headline)
-                                  .foregroundColor(Color("LightGray"))
+                                  .font(.custom("Avenir", size: 20))
+                                  .foregroundColor(Color("DarkGray"))
                           }
                        }
                    }

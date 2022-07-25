@@ -24,7 +24,7 @@ struct Homepage: View {
                 VStack {
                     List(0..<30) { item in
                         VStack (alignment: .leading) {
-                            Text("Make Fake Twitter App")
+                            Text("Make Fake Twitter App") 
                                 .font(.custom("Avenir Heavy", size: 16))
                                 .foregroundColor(Color("DarkGray"))
                                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
