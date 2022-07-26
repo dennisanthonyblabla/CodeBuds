@@ -9,6 +9,10 @@ import SwiftUI
 
 class ProjectViewModel: ObservableObject {
     @Published var ProjectName = ""
+    @Published var Framework = ""
+    @Published var LearningObjectives = ""
+    @Published var Description = ""
+    @Published var ContactNumber = ""
 }
 
 struct NewProjectpage: View {
@@ -45,12 +49,23 @@ struct NewProjectpage: View {
                         
                         VStack {
                             HStack {
+                                Text("Framework")
+                                    .font(.custom("Avenir Heavy", size: 18))
+                                    .padding(.top, 10)
+                                Spacer()
+                            }
+                            TextField("SwiftUI or UIKit", text: $viewModel.Framework)
+                                .font(.custom("Avenir", size: 16))
+                        }
+                        
+                        VStack {
+                            HStack {
                                 Text("Learning Objectives")
                                     .font(.custom("Avenir Heavy", size: 18))
                                     .padding(.top, 10)
                                 Spacer()
                             }
-                            TextField("e.g SwiftUI, TableView", text: $viewModel.ProjectName)
+                            TextField("e.g SwiftUI, TableView", text: $viewModel.LearningObjectives)
                                 .font(.custom("Avenir", size: 16))
                         }
                         
@@ -61,7 +76,7 @@ struct NewProjectpage: View {
                                     .padding(.top, 10)
                                 Spacer()
                             }
-                            TextField("Brief Description", text: $viewModel.ProjectName)
+                            TextField("Brief Description", text: $viewModel.Description)
                                 .font(.custom("Avenir", size: 16))
                         }
                         
@@ -72,10 +87,10 @@ struct NewProjectpage: View {
                                     .padding(.top, 10)
                                 Spacer()
                             }
-                            TextField("e.g Line, Whatsapp", text: $viewModel.ProjectName)
+                            TextField("e.g Line, Whatsapp", text: $viewModel.ContactNumber)
                                 .font(.custom("Avenir", size: 16))
-                                .padding(.bottom, 13)
                         }
+                        Spacer()
                     }
                 }
                 
@@ -83,15 +98,27 @@ struct NewProjectpage: View {
                     .navigationBarTitleDisplayMode(.large)
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
-                               Button("Save") {
+                               Button {
                                    print("Clicked Save")
                                    let project = UProjects(context: moc)
                                    project.projectID = UUID()
                                    project.projectName = viewModel.ProjectName
-                                   
+                                   project.framework = viewModel.Framework
+                                   project.learningObjectives = viewModel.LearningObjectives
+                                   project.projectDescription = viewModel.Description
+                                   project.contactNumber = viewModel.ContactNumber
                                    
                                    try? moc.save()
                                    dismiss()
+                               } label: {
+                                   HStack {
+                                       Text("Save")
+                                           .font(.custom("Avenir Medium", size: 18))
+                                           .foregroundColor(Color("DarkGray"))
+//                                       Image(systemName: "square.and.arrow.up")
+//                                           .renderingMode(.template)
+//                                           .foregroundColor(Color("DarkGray"))
+                                   }
                                }
                                
                            }

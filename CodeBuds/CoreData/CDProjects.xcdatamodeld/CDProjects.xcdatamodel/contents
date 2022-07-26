@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="UProjects" representedClassName="UProjects" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String"/>
-        <attribute name="contactNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="contactNumber" optional="YES" attributeType="String"/>
         <attribute name="framework" optional="YES" attributeType="String"/>
         <attribute name="joinState" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="learningObjectives" optional="YES" attributeType="String"/>
