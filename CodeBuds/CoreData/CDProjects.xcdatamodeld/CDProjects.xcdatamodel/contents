@@ -4,6 +4,7 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="contactNumber" optional="YES" attributeType="String"/>
         <attribute name="framework" optional="YES" attributeType="String"/>
+        <attribute name="isOwner" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="joinState" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="learningObjectives" optional="YES" attributeType="String"/>
         <attribute name="projectDescription" optional="YES" attributeType="String"/>
@@ -11,6 +12,6 @@
         <attribute name="projectName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="UProjects" positionX="-54" positionY="-9" width="128" height="149"/>
+        <element name="UProjects" positionX="-54" positionY="-9" width="128" height="164"/>
     </elements>
 </model>

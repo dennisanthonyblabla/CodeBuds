@@ -13,6 +13,7 @@ class ProjectViewModel: ObservableObject {
     @Published var LearningObjectives = ""
     @Published var Description = ""
     @Published var ContactNumber = ""
+    @Published var isOwner = false
 }
 
 struct NewProjectpage: View {
@@ -107,6 +108,7 @@ struct NewProjectpage: View {
                                    project.learningObjectives = viewModel.LearningObjectives
                                    project.projectDescription = viewModel.Description
                                    project.contactNumber = viewModel.ContactNumber
+                                   project.isOwner = true
                                    
                                    try? moc.save()
                                    dismiss()

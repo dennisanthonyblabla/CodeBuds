@@ -12,7 +12,6 @@ struct Homepage: View {
     @FetchRequest(sortDescriptors: []) var projects: FetchedResults<UProjects>
     
     @State private var searchText = ""
-    @State var isOwner = true
     
     init() {
         // Use this if NavigationBarTitle is with large font
@@ -43,7 +42,7 @@ struct Homepage: View {
 //                            }
     ///ini buat yang udah connect ke core data
                         List(projects) { project in
-                            NavigationLink (destination: Articlepage(selectedProject:project, isOwner: isOwner)) {
+                            NavigationLink (destination: Articlepage(selectedProject:project)) {
                                 VStack (alignment: .leading) {
                                     Text(project.projectName ?? "unkown")
                                         .font(.custom("Avenir Heavy", size: 16))

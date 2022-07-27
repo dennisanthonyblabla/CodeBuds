@@ -18,7 +18,6 @@ struct Articlepage: View {
     @Environment(\.dismiss) var dismiss
     
     @StateObject var selectedProject: UProjects
-    @State var isOwner: Bool
     
 //    init(selectedProject:UProjects) {
 //        _selectedProject = StateObject(wrappedValue: selectedProject)
@@ -96,6 +95,7 @@ struct Articlepage: View {
                        }
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
+                           if selectedProject.isOwner {
                            Button (role: .none){
                                print("Deleted")
 //                               dismiss()
@@ -106,6 +106,7 @@ struct Articlepage: View {
                                    .font(.custom("Avenir Medium", size: 18))
                                    .foregroundColor(Color("DarkGray"))
                            }
+                           }
                        }
                    }
                    .navigationBarBackButtonHidden(true)
@@ -114,8 +115,11 @@ struct Articlepage: View {
     }
 }
 
-struct Articlepage_Previews: PreviewProvider {
-    static var previews: some View {
-        Articlepage(selectedProject: UProjects(), isOwner: true)
-    }
-}
+//struct Articlepage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let context = DataController.shared.container.viewContext
+//
+//        Articlepage(selectedProject: UProjects(), isOwner: true)
+//            .environment(\.managedObjectContext, context)
+//    }
+//}
