@@ -16,7 +16,7 @@ struct Homepage: View {
     init() {
         // Use this if NavigationBarTitle is with large font
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Avenir Heavy", size: 15)!]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Avenir Black", size: 30)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Avenir Black", size: 30)!, .foregroundColor:UIColor.darkGray]
         UINavigationBar.appearance().backgroundColor = UIColor(Color("BGColor"))
     }
         
@@ -24,28 +24,47 @@ struct Homepage: View {
         NavigationView {
             ZStack {
                 VStack {
-                    List(projects) { project in
-                        VStack (alignment: .leading) {
-                            Text(project.projectName ?? "unkown")
-                                .font(.custom("Avenir Heavy", size: 16))
-                                .foregroundColor(Color("DarkGray"))
-                                .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-                            Text("SwiftUI")
-                                .font(.custom("Avenir", size: 16))
-                                .foregroundColor(Color("DarkGray"))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                            Text("By John Doe")
-                                .font(.custom("Avenir", size: 12))
-                                .foregroundColor(Color("LightGray"))
-                                .padding(.bottom, 5)
-                        }
-                        .listRowSeparator(.hidden)
+//                    List(0..<12) { project in
+//                        NavigationLink(destination: Articlepage()) {
+//                            VStack (alignment: .leading) {
+//                                Text("Make fake twitter app")
+//                                    .font(.custom("Avenir Heavy", size: 16))
+//                                    .foregroundColor(Color("DarkGray"))
+//                                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+//                                Text("SwiftUI")
+//                                    .font(.custom("Avenir", size: 16))
+//                                    .foregroundColor(Color("DarkGray"))
+//                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+//                                Text("By John Doe")
+//                                    .font(.custom("Avenir", size: 12))
+//                                    .foregroundColor(Color("LightGray"))
+//                                    .padding(.bottom, 5)
+//                            }
+    ///ini buat yang udah connect ke core data
+                        List(projects) { project in
+                            NavigationLink (destination: Articlepage(selectedProject:project)) {
+                                VStack (alignment: .leading) {
+                                    Text(project.projectName ?? "unkown")
+                                        .font(.custom("Avenir Heavy", size: 16))
+                                        .foregroundColor(Color("DarkGray"))
+                                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                    Text(project.framework ?? "unknown")
+                                        .font(.custom("Avenir", size: 16))
+                                        .foregroundColor(Color("DarkGray"))
+                                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                                    Text("By John Doe")
+                                        .font(.custom("Avenir", size: 12))
+                                        .foregroundColor(Color("LightGray"))
+                                        .padding(.bottom, 5)
+                                }
+                                .listRowSeparator(.hidden)
+                            }
+                        } 
                     }
                     .searchable(text: $searchText, prompt: "What project were you looking for?")
                     .navigationTitle("Hey, User!")
                     
                 }
-            }
 //           .toolbar {
 //               ToolbarItem(placement: .bottomBar) {
 //                   HStack (alignment: .center, spacing: 50
