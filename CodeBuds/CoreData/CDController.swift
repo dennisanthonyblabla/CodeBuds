@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import CloudKit
 
 class DataController: ObservableObject {
     static let shared = DataController()
@@ -21,6 +22,22 @@ class DataController: ObservableObject {
 //                print("Core Data failed to load: \(error.localizedDescription)")
             }
         }
+//        guard let description = container.persistentStoreDescriptions.first else {
+//            fatalError("it's an error")
+//        }
+//        description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+//        description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+//
+//        let publicOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.Dennis-Anthony.CodeBuds")
+//        publicOptions.databaseScope = .public
+        
+        guard let description = container.persistentStoreDescriptions.first else {
+             print("Can't set description")
+             fatalError("Error")
+         }
+            
+         description.cloudKitContainerOptions?.databaseScope = .public
+        
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 }
