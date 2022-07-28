@@ -19,7 +19,6 @@ class CloudKitVariables: ObservableObject {
         fetchItems()
     }
     
-    
     func fetchItems() {
         
         let predicate = NSPredicate(value: true)

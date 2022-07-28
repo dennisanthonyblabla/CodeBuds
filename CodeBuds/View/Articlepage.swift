@@ -104,7 +104,7 @@ struct Articlepage: View {
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
                            Button {
-                               print("Deleted")
+                               deleteItem()
 //                               dismiss()
 //                               try? moc.delete(selectedProject)
                                
@@ -117,7 +117,7 @@ struct Articlepage: View {
 //                                       print("Record Not Saved")
 //                                   }
 //                               }
-                               
+                               dismiss()
                                presentationMode.wrappedValue.dismiss()
                            } label: {
                                Text("Delete")
@@ -130,6 +130,25 @@ struct Articlepage: View {
             }
 //        }
     }
+    
+    func deleteItem() {
+//        guard let index = indexSet.first else { return }
+//        let selectedrecord = record
+//
+//        CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self]
+//            returnedRecordID, returnedError in
+//            record.remove()
+//        }
+        
+        publicDatabase.delete(withRecordID: record.recordID) { (deleteRecordID, error) in
+            if error == nil {
+                print("Project Deleted")
+            } else {
+                print("Project not Deleted")
+            }
+        }
+    }
+    
 }
 
 //struct Articlepage_Previews: PreviewProvider {

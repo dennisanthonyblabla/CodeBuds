@@ -69,12 +69,10 @@ struct Homepage: View {
                             ForEach(vm.records, id: \.self) { project in
                                 NavigationLink (destination: Articlepage(record: project)) {
                                     VStack (alignment: .leading) {
-                                        
-                                        
                                         Text(project["ProjectName"] as? String ?? "")
-                                                    .font(.custom("Avenir Heavy", size: 16))
-                                                    .foregroundColor(Color("DarkGray"))
-                                                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                            .font(.custom("Avenir Heavy", size: 16))
+                                            .foregroundColor(Color("DarkGray"))
+                                            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
                                         Text(project["framework"] as? String ?? "")
                                             .font(.custom("Avenir", size: 16))
                                             .foregroundColor(Color("DarkGray"))
@@ -87,6 +85,9 @@ struct Homepage: View {
                                     .listRowSeparator(.hidden)
                                 }
                             }
+                        }
+                        .refreshable{
+                            vm.fetchItems()
                         }
                     }
                     .searchable(text: $searchText, prompt: "What project were you looking for?")
