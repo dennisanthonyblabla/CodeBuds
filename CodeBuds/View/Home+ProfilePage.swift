@@ -9,14 +9,26 @@ import SwiftUI
 
 struct Home_ProfilePage: View {
     
+    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(named: "DarkGray")
         UITabBar.appearance().barTintColor = UIColor(named: "DarkGray")
-        
 //        UITabBar.appearance().isTranslucent = false
     }
     
     var body: some View {
+        mainView.onAppear {
+            
+            if !needsAppOnboarding {
+                
+            }
+        }
+    }
+}
+
+extension Home_ProfilePage {
+    private var mainView: some View {
         TabView {
             Homepage()
                 .tabItem {
@@ -27,6 +39,11 @@ struct Home_ProfilePage: View {
                     Label("Profile", systemImage: "person.crop.circle.fill")
                 }
         } .accentColor(Color("BGColor"))
+        
+            .sheet(isPresented: $needsAppOnboarding) {
+                OnboardingView()
+            }
+        
     }
 }
 

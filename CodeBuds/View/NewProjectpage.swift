@@ -25,9 +25,9 @@ struct NewProjectpage: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = ProjectViewModel()
+    @StateObject private var vm = CloudKitVariables()
 
     init() {
-        // Use this if NavigationBarTitle is with large font
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Avenir Heavy", size: 17)!]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Avenir Black", size: 30)!]
         UINavigationBar.appearance().backgroundColor = UIColor(Color("BGColor"))
@@ -123,31 +123,18 @@ struct NewProjectpage: View {
                                    
                                    publicDatabase.save(record) { (savedRecord, error) in
                                        if error == nil {
+                                           vm.fetchItems()
                                            print("Record Saved Successfully")
                                        } else {
                                            print("Record Not Saved")
                                        }
                                    }
-                                   
-///ini buat yang coredata
-//                                   let project = UProjects(context: moc)
-//                                   project.projectID = UUID()
-//                                   project.projectName = viewModel.ProjectName
-//                                   project.framework = viewModel.Framework
-//                                   project.learningObjectives = viewModel.LearningObjectives
-//                                   project.projectDescription = viewModel.Description
-//                                   project.contactNumber = viewModel.ContactNumber
-//
-//                                   try? moc.save()
                                    dismiss()
                                } label: {
                                    HStack {
                                        Text("Save")
                                            .font(.custom("Avenir Medium", size: 18))
                                            .foregroundColor(Color("DarkGray"))
-//                                       Image(systemName: "square.and.arrow.up")
-//                                           .renderingMode(.template)
-//                                           .foregroundColor(Color("DarkGray"))
                                    }
                                }
                                

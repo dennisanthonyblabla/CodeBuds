@@ -21,6 +21,7 @@ struct Articlepage: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.dismiss) var dismiss
+    @StateObject private var vm = CloudKitVariables()
     
     var record: CKRecord
     
@@ -106,19 +107,9 @@ struct Articlepage: View {
                            Button {
                                deleteItem()
 //                               dismiss()
-//                               try? moc.delete(selectedProject)
-                               
-//                               let record = CKRecord(recordType: "Projects")
-//                               
-//                               publicDatabase.save(record) { (savedRecord, error) in
-//                                   if error == nil {
-//                                       print("Record Saved Successfully")
-//                                   } else {
-//                                       print("Record Not Saved")
-//                                   }
-//                               }
+                               vm.fetchItems()
                                dismiss()
-                               presentationMode.wrappedValue.dismiss()
+//                               presentationMode.wrappedValue.dismiss()
                            } label: {
                                Text("Delete")
                                    .font(.custom("Avenir Medium", size: 18))
@@ -128,18 +119,9 @@ struct Articlepage: View {
                    }
                    .navigationBarBackButtonHidden(true)
             }
-//        }
     }
     
     func deleteItem() {
-//        guard let index = indexSet.first else { return }
-//        let selectedrecord = record
-//
-//        CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self]
-//            returnedRecordID, returnedError in
-//            record.remove()
-//        }
-        
         publicDatabase.delete(withRecordID: record.recordID) { (deleteRecordID, error) in
             if error == nil {
                 print("Project Deleted")
