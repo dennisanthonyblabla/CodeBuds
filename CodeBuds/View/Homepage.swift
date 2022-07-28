@@ -12,8 +12,6 @@ struct Homepage: View {
     
     @AppStorage("author") private var author: String = ""
     
-    @FetchRequest(sortDescriptors: []) var projects: FetchedResults<UProjects>
-    
     @State private var searchText = ""
     @StateObject private var vm = CloudKitVariables()
     
