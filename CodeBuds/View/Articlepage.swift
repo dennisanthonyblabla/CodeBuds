@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ArticleViewModel {
     
@@ -13,11 +14,13 @@ struct ArticleViewModel {
 
 struct Articlepage: View {
     
+    let publicDatabase = CKContainer.default().publicCloudDatabase
+    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var selectedProject: UProjects
+//    @StateObject var selectedProject: UProjects
     
 //    init(selectedProject:UProjects) {
 //        _selectedProject = StateObject(wrappedValue: selectedProject)
@@ -31,7 +34,7 @@ struct Articlepage: View {
                 VStack (alignment: .leading) {
                     Group {
                         HStack {
-                            Text(selectedProject.projectName ?? "unknown")
+                            Text("unknown")
                                 .foregroundColor(Color("DarkGray"))
                                 .padding(EdgeInsets(top: 30, leading: 15, bottom: 0, trailing: 15))
                                 .font(.custom("Avenir Black", size: 30))
@@ -50,7 +53,7 @@ struct Articlepage: View {
                             HStack {
                                 VStack (alignment: .leading) {
                                     ArticleSubHeader(text: "Framework")
-                                    Articlebody(text:selectedProject.framework ?? "unknown")
+                                    Articlebody(text:"unknown")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Author")
                                         .padding(.top, 20)
@@ -58,15 +61,15 @@ struct Articlepage: View {
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Learning Objectives")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.learningObjectives ?? "unknown")
+                                    Articlebody(text: "unknown")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text:"Project Description")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.projectDescription ?? "unknown")
+                                    Articlebody(text: "unknown")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Contact Detail")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.contactNumber ?? "unknown")
+                                    Articlebody(text: "unknown")
                                         .padding(.top, -10)
 
                                 }
@@ -95,10 +98,21 @@ struct Articlepage: View {
                        }
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
-                           Button (role: .none){
+                           Button {
                                print("Deleted")
 //                               dismiss()
-                               try? moc.delete(selectedProject)
+//                               try? moc.delete(selectedProject)
+                               
+//                               let record = CKRecord(recordType: "Projects")
+//                               
+//                               publicDatabase.save(record) { (savedRecord, error) in
+//                                   if error == nil {
+//                                       print("Record Saved Successfully")
+//                                   } else {
+//                                       print("Record Not Saved")
+//                                   }
+//                               }
+                               
                                presentationMode.wrappedValue.dismiss()
                            } label: {
                                Text("Delete")

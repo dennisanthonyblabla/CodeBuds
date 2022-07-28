@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct Homepage: View {
     
     @FetchRequest(sortDescriptors: []) var projects: FetchedResults<UProjects>
     
     @State private var searchText = ""
+    @StateObject private var vm = CloudKitVariables()
     
     init() {
         // Use this if NavigationBarTitle is with large font
@@ -41,25 +43,51 @@ struct Homepage: View {
 //                                    .padding(.bottom, 5)
 //                            }
     ///ini buat yang udah connect ke core data
-                        List(projects) { project in
-                            NavigationLink (destination: Articlepage(selectedProject:project)) {
-                                VStack (alignment: .leading) {
-                                    Text(project.projectName ?? "unkown")
-                                        .font(.custom("Avenir Heavy", size: 16))
-                                        .foregroundColor(Color("DarkGray"))
-                                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-                                    Text(project.framework ?? "unknown")
-                                        .font(.custom("Avenir", size: 16))
-                                        .foregroundColor(Color("DarkGray"))
-                                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                                    Text("By John Doe")
-                                        .font(.custom("Avenir", size: 12))
-                                        .foregroundColor(Color("LightGray"))
-                                        .padding(.bottom, 5)
-                                }
-                                .listRowSeparator(.hidden)
+//                        List(projects) { project in
+//                            NavigationLink (destination: Articlepage(selectedProject:project)) {
+//                                VStack (alignment: .leading) {
+//
+//
+//                                    Text(project.projectName ?? "unkown")
+//                                        .font(.custom("Avenir Heavy", size: 16))
+//                                        .foregroundColor(Color("DarkGray"))
+//                                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+//                                    Text(project.framework ?? "unknown")
+//                                        .font(.custom("Avenir", size: 16))
+//                                        .foregroundColor(Color("DarkGray"))
+//                                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+//                                    Text("By John Doe")
+//                                        .font(.custom("Avenir", size: 12))
+//                                        .foregroundColor(Color("LightGray"))
+//                                        .padding(.bottom, 5)
+//                                }
+//                                .listRowSeparator(.hidden)
+//                            }
+//                        }
+/// ini buat yang cloud kit
+                        List {
+                            ForEach(vm.projectName, id: \.self) {
+//                                NavigationLink (destination: Articlepage()) {
+//                                    VStack (alignment: .leading) {
+                                        
+                                        
+                                        Text($0)
+                                            .font(.custom("Avenir Heavy", size: 16))
+                                            .foregroundColor(Color("DarkGray"))
+                                            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+//                                        Text(project.framework ?? "unknown")
+//                                            .font(.custom("Avenir", size: 16))
+//                                            .foregroundColor(Color("DarkGray"))
+//                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+//                                        Text("By John Doe")
+//                                            .font(.custom("Avenir", size: 12))
+//                                            .foregroundColor(Color("LightGray"))
+//                                            .padding(.bottom, 5)
+//                                    }
+                                    .listRowSeparator(.hidden)
+//                                }
                             }
-                        } 
+                        }
                     }
                     .searchable(text: $searchText, prompt: "What project were you looking for?")
                     .navigationTitle("Hey, User!")

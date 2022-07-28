@@ -135,7 +135,7 @@ struct NewProjectpage: View {
 //                                   project.contactNumber = viewModel.ContactNumber
 //
 //                                   try? moc.save()
-//                                   dismiss()
+                                   dismiss()
                                } label: {
                                    HStack {
                                        Text("Save")
