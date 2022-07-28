@@ -21,6 +21,7 @@
 		3137A5F328893ECB00324636 /* Articlepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F228893ECB00324636 /* Articlepage.swift */; };
 		3137A5F5288943CE00324636 /* FontFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F4288943CE00324636 /* FontFormat.swift */; };
 		3162BD2328923A6500C47928 /* CKVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162BD2228923A6500C47928 /* CKVariables.swift */; };
+		3162BD272892CA3D00C47928 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162BD262892CA3D00C47928 /* OnboardingView.swift */; };
 		31C323A9288A566000BA23AD /* Home+ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C323A8288A566000BA23AD /* Home+ProfilePage.swift */; };
 		31C323AD288A60B300BA23AD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C323AC288A60B300BA23AD /* CloudKit.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		3137A5F228893ECB00324636 /* Articlepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articlepage.swift; sourceTree = "<group>"; };
 		3137A5F4288943CE00324636 /* FontFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFormat.swift; sourceTree = "<group>"; };
 		3162BD2228923A6500C47928 /* CKVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKVariables.swift; sourceTree = "<group>"; };
+		3162BD262892CA3D00C47928 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		31C323A8288A566000BA23AD /* Home+ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+ProfilePage.swift"; sourceTree = "<group>"; };
 		31C323AA288A60B000BA23AD /* CodeBuds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeBuds.entitlements; sourceTree = "<group>"; };
 		31C323AC288A60B300BA23AD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 				31C323A8288A566000BA23AD /* Home+ProfilePage.swift */,
 				311B607D288E38E60079008B /* Profilepage.swift */,
 				311B607F288E41DF0079008B /* NewProjectpage.swift */,
+				3162BD262892CA3D00C47928 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				3137A5DD288936E300324636 /* CodeBudsApp.swift in Sources */,
 				3137A5F328893ECB00324636 /* Articlepage.swift in Sources */,
 				3137A5F5288943CE00324636 /* FontFormat.swift in Sources */,
+				3162BD272892CA3D00C47928 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
