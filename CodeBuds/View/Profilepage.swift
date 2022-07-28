@@ -50,9 +50,11 @@ struct Profilepage: View {
                         }
                     }
                 }
+                .refreshable{
+                    vm.fetchItems()
+                }
                 
                     .navigationTitle("Your Projects")
-
                     .navigationBarTitleDisplayMode(.large)
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
