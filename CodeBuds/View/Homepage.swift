@@ -67,7 +67,7 @@ struct Homepage: View {
 /// ini buat yang cloud kit
                         List {
                             ForEach(vm.records, id: \.self) { project in
-                                NavigationLink (destination: Articlepage()) {
+                                NavigationLink (destination: Articlepage(record: project)) {
                                     VStack (alignment: .leading) {
                                         
                                         

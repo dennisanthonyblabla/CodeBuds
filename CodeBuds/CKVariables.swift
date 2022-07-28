@@ -8,9 +8,10 @@
 import Foundation
 import CloudKit
 
+
 class CloudKitVariables: ObservableObject {
-    @Published var projectName: [String] = []
-    @Published var framework: [String] = []
+//    @Published var projectName: [String] = []
+//    @Published var framework: [String] = []
     @Published var records: [CKRecord] = []
 //    @Published var recordIDs = [CKRecord.ID]()
     

@@ -8,8 +8,10 @@
 import SwiftUI
 import CloudKit
 
-struct ArticleViewModel {
+struct ArticleViewModel:Hashable {
     
+    let record: CKRecord
+
 }
 
 struct Articlepage: View {
@@ -19,6 +21,9 @@ struct Articlepage: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.dismiss) var dismiss
+    
+    var record: CKRecord
+    
     
 //    @StateObject var selectedProject: UProjects
     
@@ -34,7 +39,7 @@ struct Articlepage: View {
                 VStack (alignment: .leading) {
                     Group {
                         HStack {
-                            Text("unknown")
+                            Text(record["ProjectName"] as? String ?? "")
                                 .foregroundColor(Color("DarkGray"))
                                 .padding(EdgeInsets(top: 30, leading: 15, bottom: 0, trailing: 15))
                                 .font(.custom("Avenir Black", size: 30))
@@ -53,7 +58,7 @@ struct Articlepage: View {
                             HStack {
                                 VStack (alignment: .leading) {
                                     ArticleSubHeader(text: "Framework")
-                                    Articlebody(text:"unknown")
+                                    Articlebody(text:record["framework"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Author")
                                         .padding(.top, 20)
@@ -61,15 +66,15 @@ struct Articlepage: View {
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Learning Objectives")
                                         .padding(.top, 20)
-                                    Articlebody(text: "unknown")
+                                    Articlebody(text: record["learningObjectives"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text:"Project Description")
                                         .padding(.top, 20)
-                                    Articlebody(text: "unknown")
+                                    Articlebody(text: record["projectDescription"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Contact Detail")
                                         .padding(.top, 20)
-                                    Articlebody(text: "unknown")
+                                    Articlebody(text: record["contactNumber"] as? String ?? "")
                                         .padding(.top, -10)
 
                                 }

@@ -16,6 +16,8 @@ class ProjectViewModel: ObservableObject {
     @Published var ContactNumber = ""
 }
 
+
+
 struct NewProjectpage: View {
     
     let publicDatabase = CKContainer.default().publicCloudDatabase
@@ -116,6 +118,8 @@ struct NewProjectpage: View {
                                    record.setValue(learningObjectives, forKey: "learningObjectives")
                                    record.setValue(projectDescription, forKey: "projectDescription")
                                    record.setValue(contactNumber, forKey: "contactNumber")
+                                   
+                                   
                                    
                                    publicDatabase.save(record) { (savedRecord, error) in
                                        if error == nil {
