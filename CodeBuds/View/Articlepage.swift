@@ -6,18 +6,29 @@
 //
 
 import SwiftUI
+import CloudKit
 
-struct ArticleViewModel {
+struct ArticleViewModel:Hashable {
     
+    let record: CKRecord
+
 }
 
 struct Articlepage: View {
     
+    @AppStorage("author") private var author: String = ""
+    
+    let publicDatabase = CKContainer.default().publicCloudDatabase
+    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.dismiss) var dismiss
+    @StateObject private var vm = CloudKitVariables()
     
-    @StateObject var selectedProject: UProjects
+    var record: CKRecord
+    
+    
+//    @StateObject var selectedProject: UProjects
     
 //    init(selectedProject:UProjects) {
 //        _selectedProject = StateObject(wrappedValue: selectedProject)
@@ -31,7 +42,7 @@ struct Articlepage: View {
                 VStack (alignment: .leading) {
                     Group {
                         HStack {
-                            Text(selectedProject.projectName ?? "unknown")
+                            Text(record["ProjectName"] as? String ?? "")
                                 .foregroundColor(Color("DarkGray"))
                                 .padding(EdgeInsets(top: 30, leading: 15, bottom: 0, trailing: 15))
                                 .font(.custom("Avenir Black", size: 30))
@@ -50,23 +61,23 @@ struct Articlepage: View {
                             HStack {
                                 VStack (alignment: .leading) {
                                     ArticleSubHeader(text: "Framework")
-                                    Articlebody(text:selectedProject.framework ?? "unknown")
+                                    Articlebody(text:record["framework"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Author")
                                         .padding(.top, 20)
-                                    Articlebody(text: "John Doe")
+                                    Articlebody(text: record["author"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Learning Objectives")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.learningObjectives ?? "unknown")
+                                    Articlebody(text: record["learningObjectives"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text:"Project Description")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.projectDescription ?? "unknown")
+                                    Articlebody(text: record["projectDescription"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Contact Detail")
                                         .padding(.top, 20)
-                                    Articlebody(text: selectedProject.contactNumber ?? "unknown")
+                                    Articlebody(text: record["contactNumber"] as? String ?? "")
                                         .padding(.top, -10)
 
                                 }
@@ -95,24 +106,36 @@ struct Articlepage: View {
                        }
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
-                           if selectedProject.isOwner {
-                           Button (role: .none){
-                               print("Deleted")
-//                               dismiss()
-                               try? moc.delete(selectedProject)
-                               presentationMode.wrappedValue.dismiss()
-                           } label: {
-                               Text("Delete")
-                                   .font(.custom("Avenir Medium", size: 18))
-                                   .foregroundColor(Color("DarkGray"))
+                           let owner = record["owner"] as? String ?? ""
+                           if (owner == author) {
+                               Button {
+                                   deleteItem()
+    //                               dismiss()
+                                   vm.fetchItems()
+                                   dismiss()
+    //                               presentationMode.wrappedValue.dismiss()
+                               } label: {
+                                   Text("Delete")
+                                       .font(.custom("Avenir Medium", size: 18))
+                                       .foregroundColor(Color("DarkGray"))
                            }
                            }
                        }
                    }
                    .navigationBarBackButtonHidden(true)
             }
-//        }
     }
+    
+    func deleteItem() {
+        publicDatabase.delete(withRecordID: record.recordID) { (deleteRecordID, error) in
+            if error == nil {
+                print("Project Deleted")
+            } else {
+                print("Project not Deleted")
+            }
+        }
+    }
+    
 }
 
 //struct Articlepage_Previews: PreviewProvider {

@@ -12,33 +12,32 @@
 		311B6084288EE58E0079008B /* CDProjects.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 311B6082288EE58E0079008B /* CDProjects.xcdatamodeld */; };
 		311B6086288EE64B0079008B /* CDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B6085288EE64B0079008B /* CDController.swift */; };
 		3137A5DD288936E300324636 /* CodeBudsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5DC288936E300324636 /* CodeBudsApp.swift */; };
-		3137A5DF288936E300324636 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5DE288936E300324636 /* ContentView.swift */; };
 		3137A5E1288936E300324636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3137A5E0288936E300324636 /* Assets.xcassets */; };
 		3137A5E4288936E300324636 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3137A5E3288936E300324636 /* Preview Assets.xcassets */; };
-		3137A5E6288936E300324636 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5E5288936E300324636 /* Persistence.swift */; };
-		3137A5E9288936E300324636 /* CodeBuds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5E7288936E300324636 /* CodeBuds.xcdatamodeld */; };
 		3137A5F02889371100324636 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5EF2889371100324636 /* Homepage.swift */; };
 		3137A5F328893ECB00324636 /* Articlepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F228893ECB00324636 /* Articlepage.swift */; };
 		3137A5F5288943CE00324636 /* FontFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137A5F4288943CE00324636 /* FontFormat.swift */; };
+		3162BD2328923A6500C47928 /* CKVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162BD2228923A6500C47928 /* CKVariables.swift */; };
+		3162BD272892CA3D00C47928 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162BD262892CA3D00C47928 /* OnboardingView.swift */; };
 		31C323A9288A566000BA23AD /* Home+ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C323A8288A566000BA23AD /* Home+ProfilePage.swift */; };
 		31C323AD288A60B300BA23AD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C323AC288A60B300BA23AD /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31029926289139E800852FC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		311B607D288E38E60079008B /* Profilepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profilepage.swift; sourceTree = "<group>"; };
 		311B607F288E41DF0079008B /* NewProjectpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectpage.swift; sourceTree = "<group>"; };
 		311B6083288EE58E0079008B /* CDProjects.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDProjects.xcdatamodel; sourceTree = "<group>"; };
 		311B6085288EE64B0079008B /* CDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDController.swift; sourceTree = "<group>"; };
 		3137A5D9288936E300324636 /* CodeBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3137A5DC288936E300324636 /* CodeBudsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBudsApp.swift; sourceTree = "<group>"; };
-		3137A5DE288936E300324636 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3137A5E0288936E300324636 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3137A5E3288936E300324636 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3137A5E5288936E300324636 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		3137A5E8288936E300324636 /* CodeBuds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodeBuds.xcdatamodel; sourceTree = "<group>"; };
 		3137A5EF2889371100324636 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		3137A5F228893ECB00324636 /* Articlepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articlepage.swift; sourceTree = "<group>"; };
 		3137A5F4288943CE00324636 /* FontFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFormat.swift; sourceTree = "<group>"; };
+		3162BD2228923A6500C47928 /* CKVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKVariables.swift; sourceTree = "<group>"; };
+		3162BD262892CA3D00C47928 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		31C323A8288A566000BA23AD /* Home+ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+ProfilePage.swift"; sourceTree = "<group>"; };
 		31C323AA288A60B000BA23AD /* CodeBuds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeBuds.entitlements; sourceTree = "<group>"; };
 		31C323AC288A60B300BA23AD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -86,16 +85,14 @@
 			isa = PBXGroup;
 			children = (
 				311B6081288EE5580079008B /* CoreData */,
-				31C323AA288A60B000BA23AD /* CodeBuds.entitlements */,
+				3162BD282892F53B00C47928 /* Model */,
 				31C323A3288A473E00BA23AD /* Component */,
 				3137A5F128893E8000324636 /* View */,
 				3137A5DC288936E300324636 /* CodeBudsApp.swift */,
-				3137A5DE288936E300324636 /* ContentView.swift */,
+				31029926289139E800852FC2 /* Info.plist */,
+				31C323AA288A60B000BA23AD /* CodeBuds.entitlements */,
 				3137A5E0288936E300324636 /* Assets.xcassets */,
-				3137A5E5288936E300324636 /* Persistence.swift */,
-				3137A5E7288936E300324636 /* CodeBuds.xcdatamodeld */,
 				3137A5E2288936E300324636 /* Preview Content */,
-				3137A5F4288943CE00324636 /* FontFormat.swift */,
 			);
 			path = CodeBuds;
 			sourceTree = "<group>";
@@ -113,16 +110,26 @@
 			children = (
 				3137A5EF2889371100324636 /* Homepage.swift */,
 				3137A5F228893ECB00324636 /* Articlepage.swift */,
-				31C323A8288A566000BA23AD /* Home+ProfilePage.swift */,
 				311B607D288E38E60079008B /* Profilepage.swift */,
 				311B607F288E41DF0079008B /* NewProjectpage.swift */,
+				3162BD262892CA3D00C47928 /* OnboardingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3162BD282892F53B00C47928 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3162BD2228923A6500C47928 /* CKVariables.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		31C323A3288A473E00BA23AD /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				3137A5F4288943CE00324636 /* FontFormat.swift */,
+				31C323A8288A566000BA23AD /* Home+ProfilePage.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -206,10 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				311B6086288EE64B0079008B /* CDController.swift in Sources */,
-				3137A5E6288936E300324636 /* Persistence.swift in Sources */,
 				311B6080288E41DF0079008B /* NewProjectpage.swift in Sources */,
-				3137A5DF288936E300324636 /* ContentView.swift in Sources */,
-				3137A5E9288936E300324636 /* CodeBuds.xcdatamodeld in Sources */,
+				3162BD2328923A6500C47928 /* CKVariables.swift in Sources */,
 				311B607E288E38E60079008B /* Profilepage.swift in Sources */,
 				311B6084288EE58E0079008B /* CDProjects.xcdatamodeld in Sources */,
 				31C323A9288A566000BA23AD /* Home+ProfilePage.swift in Sources */,
@@ -217,6 +222,7 @@
 				3137A5DD288936E300324636 /* CodeBudsApp.swift in Sources */,
 				3137A5F328893ECB00324636 /* Articlepage.swift in Sources */,
 				3137A5F5288943CE00324636 /* FontFormat.swift in Sources */,
+				3162BD272892CA3D00C47928 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +355,7 @@
 				DEVELOPMENT_TEAM = UKBQ2HNT45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CodeBuds/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -379,6 +386,7 @@
 				DEVELOPMENT_TEAM = UKBQ2HNT45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CodeBuds/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,16 +436,6 @@
 			);
 			currentVersion = 311B6083288EE58E0079008B /* CDProjects.xcdatamodel */;
 			path = CDProjects.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		3137A5E7288936E300324636 /* CodeBuds.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3137A5E8288936E300324636 /* CodeBuds.xcdatamodel */,
-			);
-			currentVersion = 3137A5E8288936E300324636 /* CodeBuds.xcdatamodel */;
-			path = CodeBuds.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

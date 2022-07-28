@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 class ProjectViewModel: ObservableObject {
     @Published var ProjectName = ""
@@ -13,17 +14,22 @@ class ProjectViewModel: ObservableObject {
     @Published var LearningObjectives = ""
     @Published var Description = ""
     @Published var ContactNumber = ""
-    @Published var isOwner = false
 }
 
+
+
 struct NewProjectpage: View {
+    
+    @AppStorage("author") private var author: String = ""
+    
+    let publicDatabase = CKContainer.default().publicCloudDatabase
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = ProjectViewModel()
+    @StateObject private var vm = CloudKitVariables()
 
     init() {
-        // Use this if NavigationBarTitle is with large font
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Avenir Heavy", size: 17)!]
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Avenir Black", size: 30)!]
         UINavigationBar.appearance().backgroundColor = UIColor(Color("BGColor"))
@@ -101,25 +107,38 @@ struct NewProjectpage: View {
                            ToolbarItem(placement: .navigationBarTrailing) {
                                Button {
                                    print("Clicked Save")
-                                   let project = UProjects(context: moc)
-                                   project.projectID = UUID()
-                                   project.projectName = viewModel.ProjectName
-                                   project.framework = viewModel.Framework
-                                   project.learningObjectives = viewModel.LearningObjectives
-                                   project.projectDescription = viewModel.Description
-                                   project.contactNumber = viewModel.ContactNumber
-                                   project.isOwner = true
+                                   let projectName = viewModel.ProjectName
+                                   let framework = viewModel.Framework
+                                   let learningObjectives = viewModel.LearningObjectives
+                                   let projectDescription = viewModel.Description
+                                   let contactNumber = viewModel.ContactNumber
                                    
-                                   try? moc.save()
+                                   let record = CKRecord(recordType: "Projects")
+                                   
+                                   record.setValue(projectName, forKey: "ProjectName")
+                                   record.setValue(framework, forKey: "framework")
+                                   record.setValue(learningObjectives, forKey: "learningObjectives")
+                                   record.setValue(projectDescription, forKey: "projectDescription")
+                                   record.setValue(contactNumber, forKey: "contactNumber")
+                                   record.setValue(author, forKey: "author")
+                                   record.setValue(author, forKey: "owner")
+                                   
+                                   
+                                   
+                                   publicDatabase.save(record) { (savedRecord, error) in
+                                       if error == nil {
+                                           vm.fetchItems()
+                                           print("Record Saved Successfully")
+                                       } else {
+                                           print("Record Not Saved")
+                                       }
+                                   }
                                    dismiss()
                                } label: {
                                    HStack {
                                        Text("Save")
                                            .font(.custom("Avenir Medium", size: 18))
                                            .foregroundColor(Color("DarkGray"))
-//                                       Image(systemName: "square.and.arrow.up")
-//                                           .renderingMode(.template)
-//                                           .foregroundColor(Color("DarkGray"))
                                    }
                                }
                                

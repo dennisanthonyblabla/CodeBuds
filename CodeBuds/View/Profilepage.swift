@@ -9,7 +9,11 @@ import SwiftUI
 
 struct Profilepage: View {
     
+    @AppStorage("author") private var author: String = ""
+    
     @State private var showingCreate = false
+    @StateObject private var vm = CloudKitVariables()
+
     
     init() {
         // Use this if NavigationBarTitle is with large font
@@ -23,26 +27,34 @@ struct Profilepage: View {
             ZStack {
                 Color("BGColor").ignoresSafeArea()
                 
-                List(0..<5) { item in
-                    VStack (alignment: .leading) {
-                        Text("Making Project")
-                            .font(.custom("Avenir Heavy", size: 16))
-                            .foregroundColor(Color("DarkGray"))
-                            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-                        Text("UIkit")
-                            .font(.custom("Avenir", size: 16))
-                            .foregroundColor(Color("DarkGray"))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                        Text("By John Doe")
-                            .font(.custom("Avenir", size: 12))
-                            .foregroundColor(Color("LightGray"))
-                            .padding(.bottom, 5)
+                List { 
+                    ForEach(vm.records, id: \.self) { project in
+                        if (project["owner"] as? String == author) {
+                            NavigationLink (destination: Articlepage(record: project)) {
+                                VStack (alignment: .leading) {
+                                    Text(project["ProjectName"] as? String ?? "")
+                                        .font(.custom("Avenir Heavy", size: 16))
+                                        .foregroundColor(Color("DarkGray"))
+                                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                    Text(project["framework"] as? String ?? "")
+                                        .font(.custom("Avenir", size: 16))
+                                        .foregroundColor(Color("DarkGray"))
+                                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                                    Text("By \(project["author"] as? String ?? "")")
+                                        .font(.custom("Avenir", size: 12))
+                                        .foregroundColor(Color("LightGray"))
+                                        .padding(.bottom, 5)
+                                }
+                                .listRowSeparator(.hidden)
+                            }
+                        }
                     }
-                    .listRowSeparator(.hidden)
+                }
+                .refreshable{
+                    vm.fetchItems()
                 }
                 
                     .navigationTitle("Your Projects")
-
                     .navigationBarTitleDisplayMode(.large)
                        .toolbar {
                            ToolbarItem(placement: .navigationBarTrailing) {
