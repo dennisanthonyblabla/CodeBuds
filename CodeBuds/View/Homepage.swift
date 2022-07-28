@@ -10,6 +10,8 @@ import CloudKit
 
 struct Homepage: View {
     
+    @AppStorage("author") private var author: String = ""
+    
     @FetchRequest(sortDescriptors: []) var projects: FetchedResults<UProjects>
     
     @State private var searchText = ""
@@ -37,7 +39,7 @@ struct Homepage: View {
                                         .font(.custom("Avenir", size: 16))
                                         .foregroundColor(Color("DarkGray"))
                                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                                    Text("By John Doe")
+                                    Text("By \(project["author"] as? String ?? "")")
                                         .font(.custom("Avenir", size: 12))
                                         .foregroundColor(Color("LightGray"))
                                         .padding(.bottom, 5)
@@ -51,7 +53,7 @@ struct Homepage: View {
                     }
                 }
                 .searchable(text: $searchText, prompt: "What project were you looking for?")
-                .navigationTitle("Hey, User!")
+                .navigationTitle("Hey, \(author)!")
             }
         }
     }

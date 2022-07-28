@@ -11,12 +11,10 @@ import SwiftUI
 struct CodeBudsApp: App {
     @StateObject private var coreDataController = DataController()
     
-//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             Home_ProfilePage()
-//            ContentView()
                 .environment(\.managedObjectContext, coreDataController.container.viewContext)
         }
     }

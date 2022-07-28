@@ -20,6 +20,8 @@ class ProjectViewModel: ObservableObject {
 
 struct NewProjectpage: View {
     
+    @AppStorage("author") private var author: String = ""
+    
     let publicDatabase = CKContainer.default().publicCloudDatabase
     
     @Environment(\.managedObjectContext) var moc
@@ -118,6 +120,8 @@ struct NewProjectpage: View {
                                    record.setValue(learningObjectives, forKey: "learningObjectives")
                                    record.setValue(projectDescription, forKey: "projectDescription")
                                    record.setValue(contactNumber, forKey: "contactNumber")
+                                   record.setValue(author, forKey: "author")
+                                   record.setValue(author, forKey: "owner")
                                    
                                    
                                    

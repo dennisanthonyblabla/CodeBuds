@@ -8,32 +8,41 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
+    @AppStorage("author") private var author: String = ""
+    
     var body: some View {
             
             // #1
-            VStack {
-                Spacer(minLength: 150)
-                Image(systemName: "wand.and.stars")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 80, alignment: .center)
-                Text("Welcome To My App")
-                    .font(Font.title2.bold().lowercaseSmallCaps())
-                    .multilineTextAlignment(.center)
-                Spacer(minLength: 60)
-                Text("Something something this app 🤪")
-                Spacer(minLength: 30)
-                Text("And another something!")
-                Spacer(minLength: 30)
-                Text("And finally 🥳...some...thing")
+        VStack (alignment: .center){
+            Spacer(minLength: 300)
+            Text("Welcome To CodeBuds")
+                .font(.custom("Avenir Heavy", size: 28))
+            Spacer(minLength: 30)
+            Text("Please Register Your Name:")
+                .font(.custom("Avenir", size: 22))
+            Spacer(minLength: 30)
+            ZStack {
+                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                    .fill(Color("BGColor"))
+                TextField("Your Name", text: $author)
+                    .font(.custom("Avenir", size: 18))
+                    .foregroundColor(Color("DarkGray"))
+                    .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 0))
+            } .padding(EdgeInsets(top: 0, leading: 45, bottom: 110, trailing: 45))
+                
+//                .background(Color("BGColor"))
+
+            
+            
                 
                 // #2
                 OnboardingButton()
             }
-            .background(Color.gray)
-            .foregroundColor(.white)
-            .ignoresSafeArea(.all, edges: .all)
-        }
+            .background(Color("DarkGray"))
+            .foregroundColor(Color("BGColor"))
+//            .ignoresSafeArea(.all, edges: .all)
+    }
 }
 
 struct OnboardingButton: View {
@@ -51,7 +60,7 @@ struct OnboardingButton: View {
                         Text("Finish Setup")
                         .padding(.horizontal, 40)
                         .padding(.vertical, 15)
-                        .font(Font.title2.bold().lowercaseSmallCaps())
+                        .font(.custom("Avenir Heavy", size: 20))
                     }
                     .background(Color.white)
                     .foregroundColor(.black)

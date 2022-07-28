@@ -16,6 +16,8 @@ struct ArticleViewModel:Hashable {
 
 struct Articlepage: View {
     
+    @AppStorage("author") private var author: String = ""
+    
     let publicDatabase = CKContainer.default().publicCloudDatabase
     
     @Environment(\.managedObjectContext) var moc
@@ -63,7 +65,7 @@ struct Articlepage: View {
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Author")
                                         .padding(.top, 20)
-                                    Articlebody(text: "John Doe")
+                                    Articlebody(text: record["author"] as? String ?? "")
                                         .padding(.top, -10)
                                     ArticleSubHeader(text: "Learning Objectives")
                                         .padding(.top, 20)
@@ -104,16 +106,19 @@ struct Articlepage: View {
                        }
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
-                           Button {
-                               deleteItem()
-//                               dismiss()
-                               vm.fetchItems()
-                               dismiss()
-//                               presentationMode.wrappedValue.dismiss()
-                           } label: {
-                               Text("Delete")
-                                   .font(.custom("Avenir Medium", size: 18))
-                                   .foregroundColor(Color("DarkGray"))
+                           let owner = record["owner"] as? String ?? ""
+                           if (owner == author) {
+                               Button {
+                                   deleteItem()
+    //                               dismiss()
+                                   vm.fetchItems()
+                                   dismiss()
+    //                               presentationMode.wrappedValue.dismiss()
+                               } label: {
+                                   Text("Delete")
+                                       .font(.custom("Avenir Medium", size: 18))
+                                       .foregroundColor(Color("DarkGray"))
+                           }
                            }
                        }
                    }
