@@ -66,26 +66,26 @@ struct Homepage: View {
 //                        }
 /// ini buat yang cloud kit
                         List {
-                            ForEach(vm.projectName, id: \.self) {
-//                                NavigationLink (destination: Articlepage()) {
-//                                    VStack (alignment: .leading) {
+                            ForEach(vm.records, id: \.self) { project in
+                                NavigationLink (destination: Articlepage()) {
+                                    VStack (alignment: .leading) {
                                         
                                         
-                                        Text($0)
-                                            .font(.custom("Avenir Heavy", size: 16))
+                                        Text(project["ProjectName"] as? String ?? "")
+                                                    .font(.custom("Avenir Heavy", size: 16))
+                                                    .foregroundColor(Color("DarkGray"))
+                                                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                        Text(project["framework"] as? String ?? "")
+                                            .font(.custom("Avenir", size: 16))
                                             .foregroundColor(Color("DarkGray"))
-                                            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-//                                        Text(project.framework ?? "unknown")
-//                                            .font(.custom("Avenir", size: 16))
-//                                            .foregroundColor(Color("DarkGray"))
-//                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-//                                        Text("By John Doe")
-//                                            .font(.custom("Avenir", size: 12))
-//                                            .foregroundColor(Color("LightGray"))
-//                                            .padding(.bottom, 5)
-//                                    }
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                                        Text("By John Doe")
+                                            .font(.custom("Avenir", size: 12))
+                                            .foregroundColor(Color("LightGray"))
+                                            .padding(.bottom, 5)
+                                    }
                                     .listRowSeparator(.hidden)
-//                                }
+                                }
                             }
                         }
                     }
