@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 class ProjectViewModel: ObservableObject {
     @Published var ProjectName = ""
@@ -13,10 +14,11 @@ class ProjectViewModel: ObservableObject {
     @Published var LearningObjectives = ""
     @Published var Description = ""
     @Published var ContactNumber = ""
-    @Published var isOwner = false
 }
 
 struct NewProjectpage: View {
+    
+    let publicDatabase = CKContainer.default().publicCloudDatabase
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
@@ -101,17 +103,39 @@ struct NewProjectpage: View {
                            ToolbarItem(placement: .navigationBarTrailing) {
                                Button {
                                    print("Clicked Save")
-                                   let project = UProjects(context: moc)
-                                   project.projectID = UUID()
-                                   project.projectName = viewModel.ProjectName
-                                   project.framework = viewModel.Framework
-                                   project.learningObjectives = viewModel.LearningObjectives
-                                   project.projectDescription = viewModel.Description
-                                   project.contactNumber = viewModel.ContactNumber
-                                   project.isOwner = true
+                                   let projectName = viewModel.ProjectName
+                                   let framework = viewModel.Framework
+                                   let learningObjectives = viewModel.LearningObjectives
+                                   let projectDescription = viewModel.Description
+                                   let contactNumber = viewModel.ContactNumber
                                    
-                                   try? moc.save()
-                                   dismiss()
+                                   let record = CKRecord(recordType: "Projects")
+                                   
+                                   record.setValue(projectName, forKey: "ProjectName")
+                                   record.setValue(framework, forKey: "framework")
+                                   record.setValue(learningObjectives, forKey: "learningObjectives")
+                                   record.setValue(projectDescription, forKey: "projectDescription")
+                                   record.setValue(contactNumber, forKey: "contactNumber")
+                                   
+                                   publicDatabase.save(record) { (savedRecord, error) in
+                                       if error == nil {
+                                           print("Record Saved Successfully")
+                                       } else {
+                                           print("Record Not Saved")
+                                       }
+                                   }
+                                   
+///ini buat yang coredata
+//                                   let project = UProjects(context: moc)
+//                                   project.projectID = UUID()
+//                                   project.projectName = viewModel.ProjectName
+//                                   project.framework = viewModel.Framework
+//                                   project.learningObjectives = viewModel.LearningObjectives
+//                                   project.projectDescription = viewModel.Description
+//                                   project.contactNumber = viewModel.ContactNumber
+//
+//                                   try? moc.save()
+//                                   dismiss()
                                } label: {
                                    HStack {
                                        Text("Save")

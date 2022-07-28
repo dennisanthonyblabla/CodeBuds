@@ -95,7 +95,6 @@ struct Articlepage: View {
                        }
                        
                        ToolbarItem(placement: .navigationBarTrailing) {
-                           if selectedProject.isOwner {
                            Button (role: .none){
                                print("Deleted")
 //                               dismiss()
@@ -105,7 +104,6 @@ struct Articlepage: View {
                                Text("Delete")
                                    .font(.custom("Avenir Medium", size: 18))
                                    .foregroundColor(Color("DarkGray"))
-                           }
                            }
                        }
                    }
